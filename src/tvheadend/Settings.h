@@ -110,7 +110,7 @@ namespace tvheadend {
       m_iPortHTTP(DEFAULT_HTSP_PORT),
       m_strUsername(DEFAULT_USERNAME),
       m_strPassword(DEFAULT_PASSWORD),
-	  m_bHideNotifications(DEFAULT_HIDE_NOTIFICATIONS)
+	  m_bHideNotifications(DEFAULT_HIDE_NOTIFICATIONS),
       m_iConnectTimeout(DEFAULT_CONNECT_TIMEOUT),
       m_iResponseTimeout(DEFAULT_RESPONSE_TIMEOUT),
       m_bTraceDebug(DEFAULT_TRACE_DEBUG),
