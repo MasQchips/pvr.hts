@@ -31,6 +31,7 @@ const int         Settings::DEFAULT_HTTP_PORT           = 9981;
 const int         Settings::DEFAULT_HTSP_PORT           = 9982;
 const std::string Settings::DEFAULT_USERNAME            = "";
 const std::string Settings::DEFAULT_PASSWORD            = "";
+const bool        Settings::DEFAULT_HIDE_NOTIFICATIONS = true;
 const int         Settings::DEFAULT_CONNECT_TIMEOUT     = 10000; // millisecs
 const int         Settings::DEFAULT_RESPONSE_TIMEOUT    = 5000;  // millisecs
 const bool        Settings::DEFAULT_TRACE_DEBUG         = false;
@@ -56,6 +57,7 @@ void Settings::ReadSettings()
   SetPortHTTP(ReadIntSetting("http_port", DEFAULT_HTTP_PORT));
   SetUsername(ReadStringSetting("user", DEFAULT_USERNAME));
   SetPassword(ReadStringSetting("pass", DEFAULT_PASSWORD));
+  SetHideNotifications(ReadBoolSetting("hide_notifications", DEFAULT_HIDE_NOTIFICATIONS));
 
   /* Note: Timeouts in settings UI are defined in seconds but we expect them to be in milliseconds. */
   SetConnectTimeout(ReadIntSetting("connect_timeout", DEFAULT_CONNECT_TIMEOUT / 1000) * 1000);
@@ -107,6 +109,8 @@ ADDON_STATUS Settings::SetSetting(const std::string &key, const void *value)
     return SetStringSetting(GetUsername(), value);
   else if (key == "pass")
     return SetStringSetting(GetPassword(), value);
+  else if (key == "hide_notifications")
+    return SetBoolSetting(GetHideNotifications(), value);
   else if (key == "connect_timeout")
   {
     if (GetConnectTimeout() == (*(reinterpret_cast<const int *>(value)) * 1000))

@@ -236,13 +236,16 @@ void HTSPConnection::SetState ( PVR_CONNECTION_STATE state )
     }
   }
 
-  if (prevState != newState)
-  {
-    static std::string serverString;
+  if (!Settings::GetInstance().GetHideNotifications())
+  {  
+	if (prevState != newState)
+	{
+		static std::string serverString;
 
-    /* Notify connection state change (callback!) */
-    serverString = GetServerString();
-    PVR->ConnectionStateChange(serverString.c_str(), newState, NULL);
+		/* Notify connection state change (callback!) */
+		serverString = GetServerString();
+		PVR->ConnectionStateChange(serverString.c_str(), newState, NULL);
+	}
   }
 }
 

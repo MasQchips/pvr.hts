@@ -40,6 +40,7 @@ namespace tvheadend {
     static const int         DEFAULT_HTSP_PORT;
     static const std::string DEFAULT_USERNAME;
     static const std::string DEFAULT_PASSWORD;
+	static const bool        DEFAULT_HIDE_NOTIFICATIONS;
     static const int         DEFAULT_CONNECT_TIMEOUT;  // millisecs
     static const int         DEFAULT_RESPONSE_TIMEOUT; // millisecs
     static const bool        DEFAULT_TRACE_DEBUG;
@@ -85,6 +86,7 @@ namespace tvheadend {
     int         GetPortHTTP() const { return m_iPortHTTP; }
     std::string GetUsername() const { return m_strUsername; }
     std::string GetPassword() const { return m_strPassword; }
+	bool        GetHideNotifications() const { return m_bHideNotifications; }
     int         GetConnectTimeout() const { return m_iConnectTimeout; }
     int         GetResponseTimeout() const { return m_iResponseTimeout; }
     bool        GetTraceDebug() const { return m_bTraceDebug; }
@@ -108,6 +110,7 @@ namespace tvheadend {
       m_iPortHTTP(DEFAULT_HTSP_PORT),
       m_strUsername(DEFAULT_USERNAME),
       m_strPassword(DEFAULT_PASSWORD),
+	  m_bHideNotifications(DEFAULT_HIDE_NOTIFICATIONS)
       m_iConnectTimeout(DEFAULT_CONNECT_TIMEOUT),
       m_iResponseTimeout(DEFAULT_RESPONSE_TIMEOUT),
       m_bTraceDebug(DEFAULT_TRACE_DEBUG),
@@ -136,6 +139,7 @@ namespace tvheadend {
     void SetPortHTTP(int value) { m_iPortHTTP = value; }
     void SetUsername(const std::string& value) { m_strUsername = value; }
     void SetPassword(const std::string& value) { m_strPassword = value; }
+	void SetHideNotifications(bool value) { m_bHideNotifications = value; }
     void SetConnectTimeout(int value) { m_iConnectTimeout = value; }
     void SetResponseTimeout(int value) { m_iResponseTimeout = value; }
     void SetTraceDebug(bool value) { m_bTraceDebug = value; }
@@ -169,6 +173,7 @@ namespace tvheadend {
     int         m_iPortHTTP;
     std::string m_strUsername;
     std::string m_strPassword;
+	bool        m_bHideNotifications;
     int         m_iConnectTimeout;
     int         m_iResponseTimeout;
     bool        m_bTraceDebug;
